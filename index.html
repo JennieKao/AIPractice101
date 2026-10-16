@@ -150,6 +150,7 @@
                 <a href="#services" class="hover:text-terracottaDeep transition-colors">專業服務</a>
                 <a href="#expertise" class="hover:text-terracottaDeep transition-colors">核心技能</a>
                 <a href="#portfolio" class="hover:text-terracottaDeep transition-colors">精選作品</a>
+                <a href="#onstage" class="hover:text-terracottaDeep transition-colors">現場紀錄</a>
                 <a href="#process" class="hover:text-terracottaDeep transition-colors">工作方法</a>
                 <a href="#journal" class="hover:text-terracottaDeep transition-colors">設計觀點</a>
             </nav>
@@ -177,6 +178,7 @@
             <a href="#services" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">專業服務</a>
             <a href="#expertise" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">核心技能</a>
             <a href="#portfolio" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">精選作品</a>
+            <a href="#onstage" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">現場紀錄</a>
             <a href="#process" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">工作方法</a>
             <a href="#journal" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">設計觀點</a>
             <div class="pt-4 border-t border-borderSubtle flex flex-col space-y-3">
@@ -352,11 +354,25 @@
             </div>
 
             <!-- Asymmetric Grid for 5 Core Aspects -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- Left Giant Highlight Card -->
-                <div class="lg:col-span-5 bg-charcoal text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden reveal-on-scroll">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left: Portrait + Highlight Card -->
+                <div class="lg:col-span-5 relative reveal-on-scroll">
+                    <!-- Decorative offset frame -->
+                    <div class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-2/3 h-2/3 rounded-[2rem] border-2 border-terracotta/40 pointer-events-none" aria-hidden="true"></div>
+                    <div class="absolute -right-4 top-1/3 w-28 h-28 rounded-full bg-sage/40 blur-2xl pointer-events-none" aria-hidden="true"></div>
+
+                    <figure class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] bg-charcoal">
+                        <img src="images/profile-headshot.jpg" alt="身穿深色條紋西裝、微笑面對鏡頭的個人形象照" width="1200" height="1500" loading="lazy" decoding="async" class="w-full h-full object-cover object-top">
+                        <figcaption class="absolute top-5 right-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ivory/90 backdrop-blur-md text-[11px] font-mono font-semibold text-charcoal shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-terracotta" aria-hidden="true"></span>
+                            Designer × Front-end
+                        </figcaption>
+                    </figure>
+
+                <!-- Highlight Card (overlaps portrait) -->
+                <div class="relative -mt-28 mx-4 sm:mx-8 bg-charcoal/95 backdrop-blur-md text-white p-7 sm:p-8 rounded-3xl shadow-2xl overflow-hidden border border-white/10">
                     <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-terracotta/20 rounded-full blur-3xl"></div>
-                    <div class="space-y-6 relative z-10">
+                    <div class="space-y-5 relative z-10">
                         <span class="inline-block px-3 py-1 rounded-lg bg-ivory/10 text-xs font-mono text-sage">Career Milestone</span>
                         <div class="space-y-2">
                             <span class="block text-5xl sm:text-6xl font-black font-mono text-gradient-light">10+</span>
@@ -367,9 +383,10 @@
                         </p>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mistDeep">
                             <span>Excellence Power Co.</span>
-                            <span class="text-terracottaDeep">Deputy Manager</span>
+                            <span class="text-terracotta">Deputy Manager</span>
                         </div>
                     </div>
+                </div>
                 </div>
 
                 <!-- Right Detailed Pillars Grid -->
@@ -757,13 +774,118 @@
         </div>
     </section>
 
-    <!-- 06. Process Section -->
+    <!-- 06. On Stage & Training Section -->
+    <section id="onstage" class="py-24 px-6 md:px-12 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-[520px] h-[520px] bg-terracotta/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-sage/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+        <div class="max-w-7xl mx-auto space-y-16 relative z-10">
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 reveal-on-scroll">
+                <div class="max-w-3xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-terracotta text-xs font-mono font-semibold">
+                        <span>06 / ON STAGE &amp; IN CLASS</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
+                        走進現場，把經驗帶進每個產業。
+                    </h2>
+                    <p class="font-mono text-sm text-terracotta">Keynotes, Corporate Training &amp; Project Assessment.</p>
+                </div>
+                <p class="max-w-md text-sm text-mist leading-relaxed">
+                    從國際展會主題演講，到企業內訓與專案評估工作坊，與不同產業的團隊面對面，分享數位體驗與 AI 應用的實戰方法。
+                </p>
+            </div>
+
+            <!-- Bento Gallery -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 auto-rows-[160px] sm:auto-rows-[220px] gap-4 sm:gap-5">
+                <!-- Stage 1 (feature) -->
+                <figure class="gallery-item group col-span-2 row-span-2 relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：國科會 展會主題演講">
+                    <img src="images/stage-nstc.jpg" alt="於 2024 FUTEX 展會舞台進行 GenAI 主題演講，台下坐滿聽眾" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent">
+                        <span class="inline-block px-2.5 py-1 rounded-md bg-terracottaDeep text-[11px] font-mono font-semibold mb-2">Keynote</span>
+                        <span class="block text-lg sm:text-xl font-bold">國科會｜展會主題演講</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Stage 2 -->
+                <figure class="gallery-item group col-span-2 relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：台灣 Top3 IC 設計 展會演講">
+                    <img src="images/stage-ic-design.jpg" alt="大型展會舞台，螢幕顯示行銷資料科學團隊簡報，台下聽眾聆聽" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent">
+                        <span class="inline-block px-2.5 py-1 rounded-md bg-terracottaDeep text-[11px] font-mono font-semibold mb-2">Keynote</span>
+                        <span class="block font-bold">台灣 Top3 IC 設計｜展會演講</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Training: III -->
+                <figure class="gallery-item group relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：資策會 專題課程">
+                    <img src="images/training-iii.jpg" alt="資策會教室內，講師於投影幕前授課，學員使用筆電上課" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-charcoal/95 via-charcoal/70 to-transparent">
+                        <span class="block text-[11px] font-mono text-sage mb-0.5">Training</span>
+                        <span class="block text-sm font-bold">資策會｜專題課程</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Training: ITRI -->
+                <figure class="gallery-item group relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：工研院 專業培訓">
+                    <img src="images/training-itri.jpg" alt="工研院電腦教室內，講師持麥克風授課，學員於座位操作電腦" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-charcoal/95 via-charcoal/70 to-transparent">
+                        <span class="block text-[11px] font-mono text-sage mb-0.5">Training</span>
+                        <span class="block text-sm font-bold">工研院｜專業培訓</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Training: Aviation -->
+                <figure class="gallery-item group col-span-2 relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：台灣 Top3 航空業 企業內訓">
+                    <img src="images/training-aviation.jpg" alt="企業教室內，講師站在投影簡報前講解，學員使用筆電聽課" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent">
+                        <span class="inline-block px-2.5 py-1 rounded-md bg-sageDeep text-[11px] font-mono font-semibold mb-2">Corporate Training</span>
+                        <span class="block font-bold">台灣 Top3 航空業｜企業內訓</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Training: Telecom -->
+                <figure class="gallery-item group relative rounded-3xl overflow-hidden cursor-zoom-in reveal-on-scroll" tabindex="0" role="button" aria-label="放大檢視：台灣 Top3 電信業 企業內訓">
+                    <img src="images/training-telecom.jpg" alt="電信業企業電腦教室，講師於投影幕旁授課，學員操作電腦" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <figcaption class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-charcoal/95 via-charcoal/70 to-transparent">
+                        <span class="block text-[11px] font-mono text-sage mb-0.5">Corporate Training</span>
+                        <span class="block text-sm font-bold">台灣 Top3 電信業｜企業內訓</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Text Tile -->
+                <div class="relative rounded-3xl bg-terracottaDeep p-5 sm:p-6 flex flex-col justify-between overflow-hidden reveal-on-scroll">
+                    <div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/10" aria-hidden="true"></div>
+                    <i class="fa-solid fa-chalkboard-user text-2xl text-ivory/90" aria-hidden="true"></i>
+                    <div class="relative space-y-2">
+                        <span class="block text-sm sm:text-base font-bold leading-snug">主題演講 · 企業內訓 · 專案評估</span>
+                        <a href="#contact-me" class="inline-flex items-center gap-1.5 text-xs font-semibold text-ivory hover:underline">
+                            <span>邀請合作</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Lightbox -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-10 bg-charcoal/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="照片檢視">
+        <button id="lightbox-close" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" aria-label="關閉">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <figure class="max-w-5xl w-full space-y-4">
+            <img id="lightbox-img" src="" alt="" class="w-full max-h-[78vh] object-contain rounded-2xl shadow-2xl">
+            <figcaption id="lightbox-caption" class="text-center text-sm text-mist"></figcaption>
+        </figure>
+    </div>
+
+    <!-- 07. Process Section -->
     <section id="process" class="py-24 px-6 md:px-12 bg-ivory relative">
         <div class="max-w-7xl mx-auto space-y-16">
             <!-- Section Header -->
             <div class="max-w-3xl space-y-4 reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
-                    <span>06 / PROCESS</span>
+                    <span>07 / PROCESS</span>
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
                     從洞察需求，到實現價值。
@@ -832,13 +954,13 @@
         </div>
     </section>
 
-    <!-- 07. Journal Section -->
+    <!-- 08. Journal Section -->
     <section id="journal" class="py-24 px-6 md:px-12 bg-sand/40 relative">
         <div class="max-w-7xl mx-auto space-y-16">
             <!-- Section Header -->
             <div class="max-w-3xl space-y-4 reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
-                    <span>07 / JOURNAL</span>
+                    <span>08 / JOURNAL</span>
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
                     不斷探索，持續進化。
@@ -920,13 +1042,13 @@
         </div>
     </section>
 
-    <!-- 08. Solutions Section -->
+    <!-- 09. Solutions Section -->
     <section id="solutions" class="py-24 px-6 md:px-12 bg-ivory relative">
         <div class="max-w-7xl mx-auto space-y-16">
             <!-- Section Header -->
             <div class="max-w-3xl space-y-4 reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
-                    <span>08 / SOLUTIONS</span>
+                    <span>09 / SOLUTIONS</span>
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
                     核心產品與技術解決方案。
@@ -993,13 +1115,13 @@
         </div>
     </section>
 
-    <!-- 09. Contact Me Section -->
+    <!-- 10. Contact Me Section -->
     <section id="contact-me" class="py-24 px-6 md:px-12 bg-sand/40 relative">
         <div class="max-w-7xl mx-auto space-y-16">
             <!-- Section Header -->
             <div class="max-w-3xl space-y-4 reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
-                    <span>09 / CONTACT ME</span>
+                    <span>10 / CONTACT ME</span>
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
                     聯絡我。
@@ -1088,7 +1210,7 @@
         </div>
     </section>
 
-    <!-- 10. Contact & Booking Section -->
+    <!-- 11. Contact & Booking Section -->
     <section id="contact" class="py-24 px-6 md:px-12 bg-charcoal text-white relative overflow-hidden">
         <!-- Background Glows -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-terracotta/20 to-sage/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -1097,7 +1219,7 @@
             <!-- Left Info Column -->
             <div class="lg:col-span-6 space-y-8 reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-sage text-xs font-mono font-semibold">
-                    <span>10 / LET'S CONNECT</span>
+                    <span>11 / LET'S CONNECT</span>
                 </div>
                 <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
                     讓我們一起，<br>創造下一個精彩的數位體驗。
@@ -1179,7 +1301,7 @@
         </div>
     </section>
 
-    <!-- 11. Footer Section -->
+    <!-- 12. Footer Section -->
     <footer class="bg-charcoal text-white py-16 px-6 md:px-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="space-y-2 text-center md:text-left">
@@ -1423,6 +1545,50 @@
                 toast.classList.add("translate-y-20", "opacity-0");
             }, 4000);
         }
+
+        // On Stage Gallery Lightbox
+        (function() {
+            const lightbox = document.getElementById("gallery-lightbox");
+            const lbImg = document.getElementById("lightbox-img");
+            const lbCaption = document.getElementById("lightbox-caption");
+            const closeBtn = document.getElementById("lightbox-close");
+            let lastFocused = null;
+
+            function openLightbox(item) {
+                const img = item.querySelector("img");
+                lbImg.src = img.src;
+                lbImg.alt = img.alt;
+                lbCaption.textContent = item.querySelector("figcaption span:last-child").textContent;
+                lastFocused = item;
+                lightbox.classList.remove("opacity-0", "pointer-events-none");
+                document.body.style.overflow = "hidden";
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.add("opacity-0", "pointer-events-none");
+                document.body.style.overflow = "";
+                if (lastFocused) lastFocused.focus();
+            }
+
+            document.querySelectorAll(".gallery-item").forEach(item => {
+                item.addEventListener("click", () => openLightbox(item));
+                item.addEventListener("keydown", e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        openLightbox(item);
+                    }
+                });
+            });
+
+            closeBtn.addEventListener("click", closeLightbox);
+            lightbox.addEventListener("click", e => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener("keydown", e => {
+                if (e.key === "Escape" && !lightbox.classList.contains("pointer-events-none")) closeLightbox();
+            });
+        })();
     </script>
 </body>
 </html>
