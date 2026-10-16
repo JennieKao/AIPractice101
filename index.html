@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高嘉穎 Jiaying Gao | Digital Experience Designer & Front-end Design Specialist</title>
+    <meta name="description" content="卓越動力股份有限公司 副理／前端設計師。融合十年跨領域設計經驗、數位美學與前端技術，打造兼具視覺魅力、直覺操作與商業價值的數位體驗。">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="高嘉穎 Jiaying Gao | Digital Experience Designer">
+    <meta property="og:description" content="卓越動力股份有限公司 副理／前端設計師。以設計驅動創新，以技術實現價值。">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* 色票：網站色彩策略與品牌一致性色票 */
+                        charcoal: '#242524',       // 深炭黑｜主色
+                        ivory: '#F7F4EE',          // 暖象牙白｜中性底色
+                        sand: '#E5D9CA',           // 暖沙米色｜輔助色
+                        sage: '#A8B8A4',           // 鼠尾草灰綠｜輔助色
+                        terracotta: '#C76B4E',     // 陶土橘｜強調色
+                        mist: '#D7D6D0',           // 霧灰｜中性色
+                        /* 衍生色：確保淺底文字與白字按鈕達 WCAG AA 對比 */
+                        terracottaDeep: '#A9533A', // 淺底上的強調文字、實心按鈕
+                        terracottaDark: '#8E4631', // 按鈕漸層終點、hover
+                        sageDeep: '#566F52',       // 淺底上的灰綠文字
+                        mistDeep: '#A8A69E',       // 深底上的次要文字
+                        textMuted: '#6B6862',      // 淺底上的次要文字
+                        borderSubtle: '#D7D6D0'    // = 霧灰
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'Inter', 'sans-serif'],
+                        mono: ['"Space Grotesk"', 'monospace']
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -15px rgba(36, 37, 36, 0.06)',
+                        'premium-hover': '0 30px 60px -20px rgba(199, 107, 78, 0.18)',
+                        'glass': '0 8px 32px 0 rgba(36, 37, 36, 0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Design System CSS -->
+    <style>
+        ::selection {
+            background-color: #C76B4E;
+            color: #ffffff;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(215, 214, 208, 0.8);
+        }
+
+        .dark-glass {
+            background: rgba(36, 37, 36, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #C76B4E 0%, #8E4631 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-light {
+            background: linear-gradient(135deg, #E5D9CA 0%, #C76B4E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(215, 214, 208, 0.45) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(215, 214, 208, 0.45) 1px, transparent 1px);
+        }
+
+        /* Smooth reveal initial states */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D7D6D0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A8A69E;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-terracottaDeep selection:text-white overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-ivory/80 backdrop-blur-md border-b border-borderSubtle/50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="group flex items-center space-x-3 focus:outline-none">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-terracottaDeep to-terracottaDark flex items-center justify-center text-white font-mono font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                    JY
+                </div>
+                <div>
+                    <span class="block font-bold text-base tracking-tight text-charcoal group-hover:text-terracottaDeep transition-colors">高嘉穎 Jiaying Gao</span>
+                    <span class="block text-xs font-mono text-textMuted tracking-wider">Digital Designer & FE Specialist</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-textMuted">
+                <a href="#about" class="hover:text-terracottaDeep transition-colors">關於我</a>
+                <a href="#services" class="hover:text-terracottaDeep transition-colors">專業服務</a>
+                <a href="#expertise" class="hover:text-terracottaDeep transition-colors">核心技能</a>
+                <a href="#portfolio" class="hover:text-terracottaDeep transition-colors">精選作品</a>
+                <a href="#process" class="hover:text-terracottaDeep transition-colors">工作方法</a>
+                <a href="#journal" class="hover:text-terracottaDeep transition-colors">設計觀點</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://calendar.app.google/MqSzmkjh3eARrBmSA" target="_blank" rel="noopener noreferrer" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none">
+                    <span class="absolute inset-0 bg-gradient-to-r from-terracottaDeep to-terracottaDark rounded-xl transition-all duration-300 group-hover:opacity-90"></span>
+                    <span class="relative px-5 py-2.5 bg-white rounded-[11px] flex items-center space-x-2 text-sm font-semibold text-charcoal transition-colors group-hover:bg-opacity-0 group-hover:text-white">
+                        <i class="fa-regular fa-calendar-days text-terracottaDeep group-hover:text-white"></i>
+                        <span>預約諮詢</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" aria-label="切換選單" class="lg:hidden p-2.5 rounded-xl text-charcoal hover:bg-sand/60 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="fixed inset-x-0 top-[73px] bg-ivory/95 backdrop-blur-xl border-b border-borderSubtle shadow-2xl py-6 px-8 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 lg:hidden flex flex-col space-y-4">
+            <a href="#about" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">關於我</a>
+            <a href="#services" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">專業服務</a>
+            <a href="#expertise" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">核心技能</a>
+            <a href="#portfolio" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">精選作品</a>
+            <a href="#process" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">工作方法</a>
+            <a href="#journal" class="mobile-link text-lg font-medium text-charcoal hover:text-terracottaDeep py-2">設計觀點</a>
+            <div class="pt-4 border-t border-borderSubtle flex flex-col space-y-3">
+                <a href="https://calendar.app.google/MqSzmkjh3eARrBmSA" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 bg-gradient-to-r from-terracottaDeep to-terracottaDark text-white rounded-xl font-medium shadow-md">
+                    預約合作諮詢
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 01. Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 md:px-12 bg-grid-pattern overflow-hidden">
+        <!-- Background Gradient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-terracotta/15 to-sage/15 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Content Column -->
+            <div class="lg:col-span-7 space-y-8 text-left">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full glass-panel text-xs font-mono text-terracottaDeep shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-sageDeep animate-pulse"></span>
+                    <span>Digital Experience Designer & Front-end Specialist</span>
+                </div>
+
+                <!-- Main Headline with Typewriter Target -->
+                <div class="space-y-3">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-charcoal leading-[1.15]">
+                        <span id="typewriter-text" class="text-gradient">以設計驅動創新，以技術實現價值。</span>
+                        <span id="typewriter-cursor" class="inline-block w-1.5 h-12 md:h-16 bg-terracottaDeep ml-1 animate-pulse align-middle"></span>
+                    </h1>
+                    <p class="font-mono text-sm sm:text-base text-textMuted tracking-wide pt-2">
+                        Design Driven. Technology Empowered.
+                    </p>
+                </div>
+
+                <!-- Subtitle Description -->
+                <p class="text-lg sm:text-xl text-textMuted max-w-2xl font-normal leading-relaxed">
+                    融合十年跨領域設計經驗、數位美學與前端技術，將創意構想轉化為兼具視覺魅力、直覺操作與商業價值的數位體驗。
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 pt-2">
+                    <a href="#portfolio" class="px-8 py-4 bg-charcoal hover:bg-terracottaDeep text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 group text-center">
+                        <span>探索我的作品</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://calendar.app.google/MqSzmkjh3eARrBmSA" target="_blank" rel="noopener noreferrer" class="relative group overflow-hidden rounded-2xl p-[1px] focus:outline-none">
+                        <span class="absolute inset-0 bg-gradient-to-r from-terracottaDeep via-terracottaDeep to-sageDeep rounded-2xl transition-all duration-500 opacity-70 group-hover:opacity-100"></span>
+                        <span class="relative px-7 py-3.5 bg-white rounded-[15px] flex items-center justify-center space-x-3 text-charcoal font-semibold transition-all duration-300 group-hover:bg-opacity-95">
+                            <span class="w-2.5 h-2.5 rounded-full bg-sageDeep group-hover:scale-125 transition-transform"></span>
+                            <span>預約合作諮詢</span>
+                            <span class="hidden sm:inline-block text-xs font-mono text-textMuted pl-1 border-l border-borderSubtle">Ready to Connect</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Key Metrics / Highlights -->
+                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-borderSubtle/80 max-w-xl">
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-black text-charcoal font-mono">10+</span>
+                        <span class="text-xs sm:text-sm text-textMuted">年跨領域設計與前端實務</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-black text-terracottaDeep font-mono">Multi-</span>
+                        <span class="text-xs sm:text-sm text-textMuted">跨產業專案實績經驗</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-black text-charcoal font-mono">100%</span>
+                        <span class="text-xs sm:text-sm text-textMuted">美學與技術深度整合</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Column (Abstract Tech Device & Floating UI) -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                    <!-- Main Glass Card -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-premium space-y-6 relative overflow-hidden group">
+                        <div class="absolute -right-12 -top-12 w-40 h-40 bg-gradient-to-br from-terracotta/20 to-sage/20 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex items-center justify-between pb-4 border-b border-borderSubtle">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-terracotta"></span>
+                                <span class="w-3 h-3 rounded-full bg-sand"></span>
+                                <span class="w-3 h-3 rounded-full bg-sage"></span>
+                            </div>
+                            <span class="text-xs font-mono text-textMuted">jiaying-gao.design.system</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-ivory border border-borderSubtle space-y-2">
+                                <div class="flex items-center justify-between text-xs font-mono text-terracottaDeep">
+                                    <span>ROLE PROFILE</span>
+                                    <span>ACTIVE</span>
+                                </div>
+                                <h3 class="font-bold text-lg text-charcoal">卓越動力副理／前端設計師</h3>
+                                <p class="text-xs text-textMuted leading-relaxed">
+                                    結合視覺美學、使用者體驗與前端實作，打造高效、直覺且具備強大品牌記憶點的數位產品。
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-3 rounded-xl bg-white border border-borderSubtle/80 flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded-lg bg-terracotta/10 text-terracottaDeep flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-compass-drafting text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs font-bold text-charcoal">UI / UX</span>
+                                        <span class="block text-[10px] text-textMuted">Experience Design</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-white border border-borderSubtle/80 flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded-lg bg-charcoal/5 text-charcoal flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-code text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs font-bold text-charcoal">Front-end</span>
+                                        <span class="block text-[10px] text-textMuted">Tailwind & JS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating mini tag -->
+                        <div class="pt-2 flex items-center justify-between text-xs text-textMuted font-mono">
+                            <span>Status: Ready to Create</span>
+                            <span class="text-sageDeep font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-circle-check"></i> Verified Expert
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Secondary floating badge -->
+                    <div class="absolute -bottom-6 -left-6 glass-panel px-5 py-3.5 rounded-2xl shadow-lg hidden sm:flex items-center space-x-3 animate-bounce duration-1000">
+                        <div class="w-10 h-10 rounded-xl bg-sage/10 text-sageDeep flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-charcoal">10 Years Excellence</span>
+                            <span class="block text-[10px] text-textMuted">Cross-disciplinary Mastery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-70 hover:opacity-100 transition-opacity">
+            <span class="text-[11px] font-mono tracking-widest text-textMuted uppercase">Scroll to Explore</span>
+            <div class="w-5 h-9 rounded-full border-2 border-textMuted/40 flex items-start justify-center p-1">
+                <div class="w-1 h-2 rounded-full bg-terracottaDeep animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. About Me Section -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-ivory relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>02 / ABOUT ME</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    設計的深度，來自跨界的累積。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">Beyond Design, Beyond Boundaries.</p>
+                <p class="text-lg text-textMuted leading-relaxed pt-2">
+                    高嘉穎｜卓越動力股份有限公司 副理／前端設計師。<br>
+                    <span class="italic text-charcoal font-medium">「以設計創造價值，以技術實現想像，讓每一次數位體驗都更有溫度。」</span>
+                </p>
+            </div>
+
+            <!-- Asymmetric Grid for 5 Core Aspects -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Giant Highlight Card -->
+                <div class="lg:col-span-5 bg-charcoal text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden reveal-on-scroll">
+                    <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-terracotta/20 rounded-full blur-3xl"></div>
+                    <div class="space-y-6 relative z-10">
+                        <span class="inline-block px-3 py-1 rounded-lg bg-ivory/10 text-xs font-mono text-sage">Career Milestone</span>
+                        <div class="space-y-2">
+                            <span class="block text-5xl sm:text-6xl font-black font-mono text-gradient-light">10+</span>
+                            <h3 class="text-2xl font-bold">年專業與跨領域積累</h3>
+                        </div>
+                        <p class="text-mist text-sm leading-relaxed">
+                            從平面視覺設計、品牌創意到網站介面規劃與前端工程實作，持續探索美學與技術的最佳平衡。相信優秀的設計不僅要具備視覺吸引力，更應兼顧使用者體驗、操作效率與商業價值。
+                        </p>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-mistDeep">
+                            <span>Excellence Power Co.</span>
+                            <span class="text-terracottaDeep">Deputy Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Detailed Pillars Grid -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Pillar 02 -->
+                    <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-3 reveal-on-scroll hover:border-terracotta/50 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-terracotta/10 text-terracottaDeep flex items-center justify-center font-bold font-mono">02</div>
+                        <h4 class="font-bold text-lg text-charcoal">跨領域創作背景</h4>
+                        <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                            曾擔任靜宜大學畢業 MV 編劇與導演，亦具備設計印刷公司設計專員經歷。從影像敘事、視覺傳達到數位互動設計，累積多元創作思維與溝通能力。
+                        </p>
+                    </div>
+
+                    <!-- Pillar 03 -->
+                    <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-3 reveal-on-scroll hover:border-terracotta/50 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-charcoal/5 text-charcoal flex items-center justify-center font-bold font-mono">03</div>
+                        <h4 class="font-bold text-lg text-charcoal">跨產業專案實績</h4>
+                        <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                            參與多項政府機關、金融產業及 AI 相關產品的網站與資訊系統專案（警政、衛福、國際貿易、消防、金融、AI應用），打造兼具專業與易用性的服務。
+                        </p>
+                    </div>
+
+                    <!-- Pillar 04 -->
+                    <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-3 reveal-on-scroll hover:border-terracotta/50 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-sage/25 text-sageDeep flex items-center justify-center font-bold font-mono">04</div>
+                        <h4 class="font-bold text-lg text-charcoal">設計與前端並進</h4>
+                        <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                            精通 Photoshop, Illustrator, InDesign, Figma，並具備 HTML, CSS, JavaScript, Tailwind 前端開發能力與 Adobe Premiere 影音剪輯實作經驗。
+                        </p>
+                    </div>
+
+                    <!-- Pillar 05 -->
+                    <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-3 reveal-on-scroll hover:border-terracotta/50 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-terracotta/10 text-terracottaDeep flex items-center justify-center font-bold font-mono">05</div>
+                        <h4 class="font-bold text-lg text-charcoal">解決問題的力量</h4>
+                        <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                            秉持細膩、務實且勇於創新的工作態度，重視團隊協作與設計細節，將複雜需求轉化為直覺、高效且具商業價值的數位解決方案。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. Services Section -->
+    <section id="services" class="py-24 px-6 md:px-12 bg-sand/40 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>03 / SERVICES</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    讓好的設計，成為推動成長的力量。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">Web & System Design Solutions</p>
+                <p class="text-lg text-textMuted leading-relaxed pt-2">
+                    結合十年跨產業設計經驗與前端技術實力，提供從品牌視覺、網站規劃、UI/UX 介面設計到系統化元件建置的一站式數位設計服務。
+                </p>
+            </div>
+
+            <!-- Bento Grid Services -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 01 -->
+                <div class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="w-12 h-12 rounded-2xl bg-terracotta/10 text-terracottaDeep flex items-center justify-center font-mono font-bold text-lg group-hover:bg-terracottaDeep group-hover:text-white transition-colors">
+                                01
+                            </span>
+                            <span class="text-xs font-mono text-textMuted uppercase tracking-wider">Brand & Web</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-charcoal group-hover:text-terracottaDeep transition-colors">品牌與網站整合設計</h3>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                從企業識別系統（CIS）、品牌視覺規劃到客製化網站設計，整合平面、影像與影片企劃，建立一致且具辨識度的品牌形象。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">CIS 品牌識別</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">客製網站設計</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">影像與影片企劃</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-borderSubtle flex items-center justify-between text-sm font-semibold text-charcoal group-hover:text-terracottaDeep">
+                        <span>了解更多服務細節</span>
+                        <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Service 02 -->
+                <div class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-charcoal/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="w-12 h-12 rounded-2xl bg-charcoal/5 text-charcoal flex items-center justify-center font-mono font-bold text-lg group-hover:bg-charcoal group-hover:text-white transition-colors">
+                                02
+                            </span>
+                            <span class="text-xs font-mono text-textMuted uppercase tracking-wider">UI / UX Design</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-charcoal group-hover:text-charcoal transition-colors">UI/UX 體驗與互動優化</h3>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                提供網站改版評估、使用者體驗分析、系統操作流程規劃、介面排版及互動微動畫設計，提升易用性與操作效率。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">UI/UX 介面設計</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">流程與資訊架構</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">互動微動畫</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-borderSubtle flex items-center justify-between text-sm font-semibold text-charcoal group-hover:text-charcoal">
+                        <span>了解更多服務細節</span>
+                        <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Service 03 -->
+                <div class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-sage/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="w-12 h-12 rounded-2xl bg-sage/25 text-sageDeep flex items-center justify-center font-mono font-bold text-lg group-hover:bg-sageDeep group-hover:text-white transition-colors">
+                                03
+                            </span>
+                            <span class="text-xs font-mono text-textMuted uppercase tracking-wider">Responsive & Systems</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-charcoal group-hover:text-sageDeep transition-colors">響應式與系統化設計</h3>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                針對多裝置規劃 RWD 響應式版面，同步建立共用設計元件、Design Guidelines 與介面設計系統，提升協作效率。
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">RWD 響應式網頁</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Design Systems</span>
+                            <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">前端程式實作</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-borderSubtle flex items-center justify-between text-sm font-semibold text-charcoal group-hover:text-sageDeep">
+                        <span>了解更多服務細節</span>
+                        <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. Expertise Section -->
+    <section id="expertise" class="py-24 px-6 md:px-12 bg-ivory relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>04 / EXPERTISE</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    跨越設計與技術的界線。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">A Multidisciplinary Creative Mind.</p>
+            </div>
+
+            <!-- Expertise 4-Domain Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Domain 1 -->
+                <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-4 reveal-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-terracotta/10 text-terracottaDeep flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-charcoal">Visual & Brand Design</h3>
+                    <p class="text-xs text-textMuted leading-relaxed">
+                        打造兼具質感與商業辨識度的品牌視覺與平面設計。
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Photoshop</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Illustrator</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">InDesign</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">影像合成</span>
+                    </div>
+                </div>
+
+                <!-- Domain 2 -->
+                <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-4 reveal-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-charcoal/5 text-charcoal flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-charcoal">UI/UX & Interaction</h3>
+                    <p class="text-xs text-textMuted leading-relaxed">
+                        以使用者為核心，規劃流暢的資訊架構與直覺互動體驗。
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Figma</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">資訊架構</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">微動畫</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Design System</span>
+                    </div>
+                </div>
+
+                <!-- Domain 3 -->
+                <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-4 reveal-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-sage/25 text-sageDeep flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-charcoal">Front-end Development</h3>
+                    <p class="text-xs text-textMuted leading-relaxed">
+                        將設計精準轉化為高效、響應式且符合前端標準的程式碼。
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">HTML5 / CSS3</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">JavaScript</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Tailwind CSS</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">RWD 響應式</span>
+                    </div>
+                </div>
+
+                <!-- Domain 4 -->
+                <div class="p-6 rounded-2xl bg-white border border-borderSubtle space-y-4 reveal-on-scroll">
+                    <div class="w-12 h-12 rounded-xl bg-sand text-charcoal flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-charcoal">Digital Media Production</h3>
+                    <p class="text-xs text-textMuted leading-relaxed">
+                        結合影像敘事與影片企劃剪輯，豐富數位品牌的動態表現。
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">影像敘事</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">Adobe Premiere</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">影片企劃剪輯</span>
+                        <span class="px-2 py-0.5 rounded bg-ivory border border-borderSubtle text-[11px] font-mono text-charcoal">數位內容</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. Portfolio Section -->
+    <section id="portfolio" class="py-24 px-6 md:px-12 bg-sand/40 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-on-scroll">
+                <div class="max-w-2xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                        <span>05 / PORTFOLIO</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                        每個作品，都是設計思考的實踐。
+                    </h2>
+                    <p class="font-mono text-sm text-terracottaDeep">Selected Works & Case Studies.</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button data-filter="all" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-terracottaDeep text-white shadow-sm transition-all">All Projects</button>
+                    <button data-filter="website" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-textMuted border border-borderSubtle hover:border-terracotta transition-all">Website Design</button>
+                    <button data-filter="uiux" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-textMuted border border-borderSubtle hover:border-terracotta transition-all">UI/UX & System</button>
+                    <button data-filter="branding" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-textMuted border border-borderSubtle hover:border-terracotta transition-all">Branding & Visual</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Item 1 -->
+                <div class="portfolio-item group bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium-hover transition-all duration-500 flex flex-col justify-between reveal-on-scroll" data-category="website">
+                    <div class="relative overflow-hidden aspect-video bg-sand/60">
+                        <img src="https://placehold.co/800x450/E5D9CA/A9533A?text=Enterprise+Digital+Platform" alt="專案示範圖" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x450/F7F4EE/6B6862?text=Project+Preview'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-xs font-mono text-white bg-terracottaDeep/90 px-3 py-1.5 rounded-lg backdrop-blur-md">Website Design & RWD</span>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-terracottaDeep font-bold">01 / DEMO PROJECT</span>
+                            <span class="text-xs font-mono text-textMuted">Enterprise Web Solution</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal group-hover:text-terracottaDeep transition-colors">企業級數位服務平台與資訊系統介面</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            針對政府與大型企業專案需求進行資訊架構梳理，打造直覺易用的 RWD 響應式網頁與標準化介面設計系統。
+                        </p>
+                        <div class="pt-4 border-t border-borderSubtle flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">UI/UX</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Tailwind CSS</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">RWD</span>
+                            </div>
+                            <button onclick="openModal('Project 01', '企業級數位服務平台與資訊系統介面', '針對政府機關與大型企業需求進行複雜資訊架構梳理。', '解決多重權限與龐大資料檢索的操作痛點。', '前端設計師與 UI/UX 負責人', '建立模組化元件庫與響應式格線系統。')" class="text-sm font-semibold text-terracottaDeep hover:underline flex items-center gap-1.5">
+                                <span>View Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 2 -->
+                <div class="portfolio-item group bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium-hover transition-all duration-500 flex flex-col justify-between reveal-on-scroll" data-category="uiux">
+                    <div class="relative overflow-hidden aspect-video bg-sand/60">
+                        <img src="https://placehold.co/800x450/D7D6D0/242524?text=AI+System+UX+Design" alt="專案示範圖" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x450/F7F4EE/6B6862?text=Project+Preview'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-xs font-mono text-white bg-charcoal/90 px-3 py-1.5 rounded-lg backdrop-blur-md">UI/UX & AI Application</span>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-charcoal font-bold">02 / DEMO PROJECT</span>
+                            <span class="text-xs font-mono text-textMuted">AI Product Interface</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal group-hover:text-charcoal transition-colors">AI 應用產品互動介面與操作流程規劃</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            將前瞻 AI 技術與複雜邏輯轉化為親和、流暢的圖形介面與互動體驗，降低使用者學習門檻。
+                        </p>
+                        <div class="pt-4 border-t border-borderSubtle flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Figma</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Interaction Design</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Micro-animation</span>
+                            </div>
+                            <button onclick="openModal('Project 02', 'AI 應用產品互動介面與操作流程規劃', '將複雜的 AI 模型輸出與分析數據轉化為易懂的視覺介面。', '兼顧專業數據呈現與直覺操作流程。', 'UI/UX 體驗設計師', '建立以使用者為中心的互動回饋機制。')" class="text-sm font-semibold text-charcoal hover:underline flex items-center gap-1.5">
+                                <span>View Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 3 -->
+                <div class="portfolio-item group bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium-hover transition-all duration-500 flex flex-col justify-between reveal-on-scroll" data-category="branding">
+                    <div class="relative overflow-hidden aspect-video bg-sand/60">
+                        <img src="https://placehold.co/800x450/A8B8A4/242524?text=Brand+Visual+Identity" alt="專案示範圖" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x450/F7F4EE/6B6862?text=Project+Preview'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-xs font-mono text-white bg-sageDeep/90 px-3 py-1.5 rounded-lg backdrop-blur-md">Branding & Visuals</span>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-sageDeep font-bold">03 / DEMO PROJECT</span>
+                            <span class="text-xs font-mono text-textMuted">Brand Identity System</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal group-hover:text-sageDeep transition-colors">高端數位品牌視覺識別與數位整合設計</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            從企業識別、色彩系統、標準字到網頁端視覺延展，建立兼具現代感與信任感的數位品牌印象。
+                        </p>
+                        <div class="pt-4 border-t border-borderSubtle flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">CIS 系統</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Photoshop</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Illustrator</span>
+                            </div>
+                            <button onclick="openModal('Project 03', '高端數位品牌視覺識別與數位整合設計', '為新創與成長型企業建立專業、具前瞻性的品牌視覺。', '在極簡風格與高辨識度之間取得完美平衡。', '品牌視覺總監', '建立完整的品牌視覺規範與應用手冊。')" class="text-sm font-semibold text-sageDeep hover:underline flex items-center gap-1.5">
+                                <span>View Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 4 -->
+                <div class="portfolio-item group bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium-hover transition-all duration-500 flex flex-col justify-between reveal-on-scroll" data-category="website">
+                    <div class="relative overflow-hidden aspect-video bg-sand/60">
+                        <img src="https://placehold.co/800x450/F7F4EE/A9533A?text=Design+System+Architecture" alt="專案示範圖" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x450/F7F4EE/6B6862?text=Project+Preview'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-xs font-mono text-white bg-terracottaDark/90 px-3 py-1.5 rounded-lg backdrop-blur-md">Design System & Code</span>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-terracottaDeep font-bold">04 / DEMO PROJECT</span>
+                            <span class="text-xs font-mono text-textMuted">Design Systems & Front-end</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal group-hover:text-terracottaDeep transition-colors">多語系與多裝置響應式設計系統建置</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            建立跨平台共用元件庫與前端 CSS 樣式規範，大幅提升大型專案開發協作效率與長期維護彈性。
+                        </p>
+                        <div class="pt-4 border-t border-borderSubtle flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Design Guidelines</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">HTML/CSS</span>
+                                <span class="px-2.5 py-1 rounded-md bg-ivory text-xs font-mono text-textMuted">Component Library</span>
+                            </div>
+                            <button onclick="openModal('Project 04', '多語系與多裝置響應式設計系統建置', '統一組織內部多個產品線的視覺與程式碼規範。', '消除不同系統間的體驗落差與開發浪費。', '前端架構與設計顧問', '輸出完整的 Design Guidelines 與可複用前端模組。')" class="text-sm font-semibold text-terracottaDeep hover:underline flex items-center gap-1.5">
+                                <span>View Case Study</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. Process Section -->
+    <section id="process" class="py-24 px-6 md:px-12 bg-ivory relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>06 / PROCESS</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    從洞察需求，到實現價值。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">From Insight to Impact.</p>
+            </div>
+
+            <!-- Process 4 Steps Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="p-8 rounded-3xl bg-white border border-borderSubtle space-y-6 reveal-on-scroll relative group hover:border-terracotta transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-black font-mono text-terracottaDeep">01</span>
+                        <span class="px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-bold">Discover</span>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-charcoal">探索需求</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            理解品牌目標、使用者問題與產品需求，透過訪談與資料分析，找出設計真正需要解決的核心問題。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="p-8 rounded-3xl bg-white border border-borderSubtle space-y-6 reveal-on-scroll relative group hover:border-charcoal transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-black font-mono text-charcoal">02</span>
+                        <span class="px-3 py-1 rounded-full bg-charcoal/5 text-charcoal text-xs font-mono font-bold">Define</span>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-charcoal">定義方向</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            整合資訊架構（IA）、視覺策略與互動需求，建立清晰、結構完整且可執行的設計規範與方向。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="p-8 rounded-3xl bg-white border border-borderSubtle space-y-6 reveal-on-scroll relative group hover:border-sage transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-black font-mono text-sageDeep">03</span>
+                        <span class="px-3 py-1 rounded-full bg-sage/25 text-sageDeep text-xs font-mono font-bold">Design</span>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-charcoal">設計體驗</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            結合視覺美學、UI/UX 與前端技術，打造兼具吸引力、直覺操作與高互動品質的設計成果。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="p-8 rounded-3xl bg-white border border-borderSubtle space-y-6 reveal-on-scroll relative group hover:border-terracottaDeep transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-black font-mono text-terracottaDeep">04</span>
+                        <span class="px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-bold">Deliver</span>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-charcoal">實現價值</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            重視設計品質、跨裝置一致性與實際應用，讓設計成果能有效融入產品與業務需求，創造長期價值。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07. Journal Section -->
+    <section id="journal" class="py-24 px-6 md:px-12 bg-sand/40 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>07 / JOURNAL</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    不斷探索，持續進化。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">Insights, Ideas & Inspiration.</p>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium transition-all duration-300 flex flex-col justify-between reveal-on-scroll">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-bold">UI/UX 設計</span>
+                            <span class="text-xs font-mono text-textMuted">2026.03.15</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal hover:text-terracottaDeep transition-colors cursor-pointer" onclick="openJournalModal('打造高端數位產品的 5 個視覺與互動關鍵原則', '在當今高度競爭的數位環境中，使用者在進入網頁的前三秒內就會決定對品牌的信任感。本文深入探討如何透過精準留白、微動畫與資訊層級建立高端質感。')">
+                            打造高端數位產品的 5 個視覺與互動關鍵原則
+                        </h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            探討極簡奢華風與優雅白色科技風（Elegant White Tech）在現代 SaaS 與品牌網站中的應用與實踐細節。
+                        </p>
+                    </div>
+                    <div class="p-8 pt-0 flex items-center justify-between border-t border-borderSubtle mt-4">
+                        <span class="text-xs font-mono text-textMuted">Reading time: 5 min</span>
+                        <button onclick="openJournalModal('打造高端數位產品的 5 個視覺與互動關鍵原則', '在當今高度競爭的數位環境中，使用者在進入網頁的前三秒內就會決定對品牌的信任感。本文深入探討如何透過精準留白、微動畫與資訊層級建立高端質感。')" class="text-sm font-semibold text-terracottaDeep hover:underline flex items-center gap-1">
+                            <span>閱讀文章</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium transition-all duration-300 flex flex-col justify-between reveal-on-scroll">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-charcoal/5 text-charcoal text-xs font-mono font-bold">前端技術</span>
+                            <span class="text-xs font-mono text-textMuted">2026.02.28</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal hover:text-charcoal transition-colors cursor-pointer" onclick="openJournalModal('設計師與工程師的橋樑：建立高效的 Design System', '當專案規模擴大時，視覺一致性與開發效率往往面臨挑戰。透過模組化元件與標準化設計規範，如何無縫連接設計與前端實作？')">
+                            設計師與工程師的橋樑：建立高效的 Design System
+                        </h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            從實務經驗出發，解析如何透過共用元件與設計規範消除設計與前端之間的隔閡，提升團隊協作效率。
+                        </p>
+                    </div>
+                    <div class="p-8 pt-0 flex items-center justify-between border-t border-borderSubtle mt-4">
+                        <span class="text-xs font-mono text-textMuted">Reading time: 7 min</span>
+                        <button onclick="openJournalModal('設計師與工程師的橋樑：建立高效的 Design System', '當專案規模擴大時，視覺一致性與開發效率往往面臨挑戰。透過模組化元件與標準化設計規範，如何無縫連接設計與前端實作？')" class="text-sm font-semibold text-charcoal hover:underline flex items-center gap-1">
+                            <span>閱讀文章</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-3xl overflow-hidden border border-borderSubtle shadow-sm hover:shadow-premium transition-all duration-300 flex flex-col justify-between reveal-on-scroll">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-sage/25 text-sageDeep text-xs font-mono font-bold">數位趨勢</span>
+                            <span class="text-xs font-mono text-textMuted">2026.02.10</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal hover:text-sageDeep transition-colors cursor-pointer" onclick="openJournalModal('AI 時代下的數位設計思維：當創意遇上自動化', '人工智慧正在改變數位產品的創作流程。設計師該如何定位自身角色？本文探討 AI 如何作為賦能工具而非替代品。')">
+                            AI 時代下的數位設計思維：當創意遇上自動化
+                        </h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            人工智慧工具如何輔助設計流程與前端開發？探討在 AI 浪潮下，設計師如何保有不可替代的核心創意價值。
+                        </p>
+                    </div>
+                    <div class="p-8 pt-0 flex items-center justify-between border-t border-borderSubtle mt-4">
+                        <span class="text-xs font-mono text-textMuted">Reading time: 6 min</span>
+                        <button onclick="openJournalModal('AI 時代下的數位設計思維：當創意遇上自動化', '人工智慧正在改變數位產品的創作流程。設計師該如何定位自身角色？本文探討 AI 如何作為賦能工具而非替代品。')" class="text-sm font-semibold text-sageDeep hover:underline flex items-center gap-1">
+                            <span>閱讀文章</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08. Solutions Section -->
+    <section id="solutions" class="py-24 px-6 md:px-12 bg-ivory relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>08 / SOLUTIONS</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    核心產品與技術解決方案。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">Products & Technical Solutions.</p>
+            </div>
+
+            <!-- Solutions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Solution 1 -->
+                <a href="https://www.trade.gov.tw/" target="_blank" rel="noopener noreferrer" class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracottaDeep flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal group-hover:text-terracottaDeep transition-colors">經濟部國際貿易署經貿資訊網</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            網站改版，客製化設計，注重使用者體驗與無障礙設計，所有民眾皆能輕易使用，還能通過 AI 聊天機器人快速釋疑與問答。
+                        </p>
+                    </div>
+                    <span class="text-sm font-semibold text-terracottaDeep flex items-center gap-2">
+                        <span>前往網站</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </span>
+                </a>
+
+                <!-- Solution 2 -->
+                <a href="https://www.email.mohw.gov.tw/" target="_blank" rel="noopener noreferrer" class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-charcoal/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-charcoal/5 text-charcoal flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal group-hover:text-charcoal transition-colors">衛福部部長信箱</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            同時設計前後台，讓民眾寄信具備良好體驗，網站管理者也能輕鬆使用後台上稿與回信操作。
+                        </p>
+                    </div>
+                    <span class="text-sm font-semibold text-charcoal flex items-center gap-2">
+                        <span>前往網站</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </span>
+                </a>
+
+                <!-- Solution 3 -->
+                <a href="https://memory.nhrm.gov.tw/" target="_blank" rel="noopener noreferrer" class="group bg-white p-8 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-sage/40 transition-all duration-500 flex flex-col justify-between space-y-8 reveal-on-scroll">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sage/25 text-sageDeep flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal group-hover:text-sageDeep transition-colors">國家人權記憶庫</h3>
+                        <p class="text-sm text-textMuted leading-relaxed">
+                            注重美學設計，同時平衡專業、風格與沉穩，提供多媒體資料查詢與檢視，具備強大搜尋引擎功能。
+                        </p>
+                    </div>
+                    <span class="text-sm font-semibold text-sageDeep flex items-center gap-2">
+                        <span>前往網站</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09. Contact Me Section -->
+    <section id="contact-me" class="py-24 px-6 md:px-12 bg-sand/40 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <!-- Section Header -->
+            <div class="max-w-3xl space-y-4 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracottaDeep text-xs font-mono font-semibold">
+                    <span>09 / CONTACT ME</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-charcoal tracking-tight">
+                    聯絡我。
+                </h2>
+                <p class="font-mono text-sm text-terracottaDeep">Find Me on Social & Send Your Brief.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Social Links -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- LINE -->
+                    <a href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noopener noreferrer" class="group bg-white p-6 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 reveal-on-scroll">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-sand/60 text-charcoal group-hover:bg-terracottaDeep group-hover:text-white flex items-center justify-center text-3xl transition-colors duration-300">
+                            <i class="fa-brands fa-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="block font-bold text-lg text-charcoal">LINE</span>
+                            <span class="block text-xs text-textMuted">加入 LINE 社群即時交流</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-textMuted group-hover:text-terracottaDeep transition-colors" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noopener noreferrer" class="group bg-white p-6 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 reveal-on-scroll">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-sand/60 text-charcoal group-hover:bg-terracottaDeep group-hover:text-white flex items-center justify-center text-2xl transition-colors duration-300">
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="block font-bold text-lg text-charcoal">Facebook</span>
+                            <span class="block text-xs text-textMuted">追蹤粉絲專頁最新動態</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-textMuted group-hover:text-terracottaDeep transition-colors" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </a>
+
+                    <!-- LinkedIn（TODO: 請替換為 LinkedIn 個人頁網址） -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group bg-white p-6 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 reveal-on-scroll">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-sand/60 text-charcoal group-hover:bg-terracottaDeep group-hover:text-white flex items-center justify-center text-2xl transition-colors duration-300">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="block font-bold text-lg text-charcoal">LinkedIn</span>
+                            <span class="block text-xs text-textMuted">查看專業經歷與合作</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-textMuted group-hover:text-terracottaDeep transition-colors" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/JennieKao" target="_blank" rel="noopener noreferrer" class="group bg-white p-6 rounded-3xl border border-borderSubtle shadow-sm hover:shadow-premium-hover hover:border-terracotta/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 reveal-on-scroll">
+                        <div class="w-14 h-14 shrink-0 rounded-2xl bg-sand/60 text-charcoal group-hover:bg-terracottaDeep group-hover:text-white flex items-center justify-center text-3xl transition-colors duration-300">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="block font-bold text-lg text-charcoal">GitHub</span>
+                            <span class="block text-xs text-textMuted font-mono truncate">github.com/JennieKao</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-textMuted group-hover:text-terracottaDeep transition-colors" aria-hidden="true"></i>
+                        <span class="sr-only">（另開新視窗）</span>
+                    </a>
+                </div>
+
+                <!-- Requirement Form CTA -->
+                <div class="lg:col-span-5 reveal-on-scroll">
+                    <div class="h-full bg-charcoal text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden flex flex-col justify-between gap-8">
+                        <div class="absolute -top-16 -right-16 w-56 h-56 bg-gradient-to-br from-terracotta/30 to-sage/30 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 text-sage flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">填寫需求表單</h3>
+                            <p class="text-sm text-mist leading-relaxed">
+                                有專案想法或合作需求嗎？透過表單告訴我您的專案背景、預期目標與時程，我將盡快與您聯繫。
+                            </p>
+                        </div>
+                        <a href="https://forms.gle/n8se1w5K3ogjCm7e6" target="_blank" rel="noopener noreferrer" class="relative z-10 inline-flex items-center justify-center gap-3 w-full px-8 py-4 bg-gradient-to-r from-terracottaDeep to-terracottaDark text-white font-semibold rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                            <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+                            <span>前往填寫需求表單</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                            <span class="sr-only">（另開新視窗）</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Contact & Booking Section -->
+    <section id="contact" class="py-24 px-6 md:px-12 bg-charcoal text-white relative overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-terracotta/20 to-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Info Column -->
+            <div class="lg:col-span-6 space-y-8 reveal-on-scroll">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-sage text-xs font-mono font-semibold">
+                    <span>10 / LET'S CONNECT</span>
+                </div>
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
+                    讓我們一起，<br>創造下一個精彩的數位體驗。
+                </h2>
+                <p class="font-mono text-sm text-terracotta">Let's Create Something Meaningful.</p>
+                <p class="text-mist text-lg leading-relaxed">
+                    無論是品牌網站、UI/UX 體驗優化，或企業數位系統設計，都期待透過創意與技術的整合，為你的下一個專案創造更多可能。
+                </p>
+
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-terracotta/20 text-terracotta flex items-center justify-center font-bold">
+                            <i class="fa-regular fa-calendar-check text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-white">線上即時預約</span>
+                            <a href="https://calendar.app.google/MqSzmkjh3eARrBmSA" target="_blank" rel="noopener noreferrer" class="text-xs text-terracotta hover:underline font-mono">calendar.app.google/MqSzmkjh3eARrBmSA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <a href="https://calendar.app.google/MqSzmkjh3eARrBmSA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-terracottaDeep to-terracottaDark text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>立即預約合作諮詢</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Contact Form Column -->
+            <div class="lg:col-span-6 reveal-on-scroll">
+                <div class="dark-glass p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 border border-white/10">
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-bold text-white">傳送專案需求</h3>
+                        <p class="text-xs text-mistDeep">填寫下方表單，將於 1-2 個工作天內回覆您的諮詢。</p>
+                    </div>
+
+                    <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="block text-xs font-mono text-mist">姓名 *</label>
+                                <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-mistDeep focus:outline-none focus:border-terracotta text-sm transition-colors" placeholder="您的姓名">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="block text-xs font-mono text-mist">電子郵件 *</label>
+                                <input type="email" id="form-email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-mistDeep focus:outline-none focus:border-terracotta text-sm transition-colors" placeholder="name@company.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="block text-xs font-mono text-mist">公司／品牌名稱（選填）</label>
+                                <input type="text" id="form-company" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-mistDeep focus:outline-none focus:border-terracotta text-sm transition-colors" placeholder="卓越動力股份有限公司">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="block text-xs font-mono text-mist">合作需求類型 *</label>
+                                <select id="form-service" class="w-full px-4 py-3 rounded-xl bg-charcoal border border-white/10 text-white focus:outline-none focus:border-terracotta text-sm transition-colors">
+                                    <option value="brand-web">品牌與網站整合設計</option>
+                                    <option value="ui-ux">UI/UX 體驗與互動優化</option>
+                                    <option value="system">響應式與系統化設計</option>
+                                    <option value="other">其他合作諮詢</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="block text-xs font-mono text-mist">專案需求描述 *</label>
+                            <textarea id="form-message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-mistDeep focus:outline-none focus:border-terracotta text-sm transition-colors resize-none" placeholder="請簡述您的專案背景、預期目標或時間規劃..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-terracottaDeep hover:bg-terracottaDark text-white font-semibold rounded-xl shadow-lg transition-colors flex items-center justify-center space-x-2">
+                            <span>送出諮詢需求</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Footer Section -->
+    <footer class="bg-charcoal text-white py-16 px-6 md:px-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="block font-bold text-lg">高嘉穎 Jiaying Gao</span>
+                <span class="block text-xs font-mono text-mistDeep">Digital Experience Designer & Front-end Design Specialist</span>
+                <p class="text-xs text-mistDeep pt-2">Copyright © 2026 Jiaying Gao. All rights reserved.</p>
+            </div>
+
+            <div class="flex items-center space-x-6 text-sm text-mistDeep">
+                <a href="#about" class="hover:text-white transition-colors">關於我</a>
+                <a href="#services" class="hover:text-white transition-colors">專業服務</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">精選作品</a>
+                <a href="#contact-me" class="hover:text-white transition-colors">聯絡我</a>
+            </div>
+
+            <div>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-mono text-mist transition-colors flex items-center space-x-2">
+                    <span>Back to Top</span>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div id="modal-content" class="bg-white rounded-3xl max-w-2xl w-full p-8 sm:p-10 space-y-6 transform scale-95 transition-all duration-300 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-ivory flex items-center justify-center text-charcoal hover:bg-sand transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-2">
+                <span id="modal-tag" class="text-xs font-mono text-terracottaDeep font-bold uppercase">CASE STUDY</span>
+                <h3 id="modal-title" class="text-2xl sm:text-3xl font-black text-charcoal">專案標題</h3>
+            </div>
+            <div class="space-y-4 text-sm text-textMuted leading-relaxed">
+                <div>
+                    <h4 class="font-bold text-charcoal mb-1">專案背景</h4>
+                    <p id="modal-bg">背景說明文字...</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-charcoal mb-1">面臨挑戰</h4>
+                    <p id="modal-challenge">挑戰說明文字...</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-charcoal mb-1">我的角色與職責</h4>
+                    <p id="modal-role">角色說明文字...</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-charcoal mb-1">設計與實作成果</h4>
+                    <p id="modal-result">成果說明文字...</p>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-borderSubtle flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-3 bg-charcoal text-white rounded-xl text-sm font-semibold hover:bg-terracottaDeep transition-colors">
+                    關閉視窗
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Journal Modal -->
+    <div id="journal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div id="journal-modal-content" class="bg-white rounded-3xl max-w-2xl w-full p-8 sm:p-10 space-y-6 transform scale-95 transition-all duration-300 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeJournalModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-ivory flex items-center justify-center text-charcoal hover:bg-sand transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-2">
+                <span class="text-xs font-mono text-terracottaDeep font-bold uppercase">DESIGN JOURNAL</span>
+                <h3 id="journal-modal-title" class="text-2xl font-black text-charcoal">文章標題</h3>
+            </div>
+            <p id="journal-modal-body" class="text-sm text-textMuted leading-relaxed">文章內文...</p>
+            <div class="pt-4 border-t border-borderSubtle flex justify-end">
+                <button onclick="closeJournalModal()" class="px-6 py-3 bg-charcoal text-white rounded-xl text-sm font-semibold hover:bg-terracottaDeep transition-colors">
+                    關閉文章
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Box -->
+    <div id="toast-notification" class="fixed bottom-8 right-8 z-50 bg-charcoal text-white px-6 py-4 rounded-2xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center space-x-3 border border-white/10">
+        <i class="fa-solid fa-circle-check text-sage text-lg"></i>
+        <div>
+            <span id="toast-title" class="block font-bold text-sm">表單已模擬送出</span>
+            <span id="toast-desc" class="block text-xs text-mistDeep">感謝您的諮詢，將盡快與您聯繫。</span>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 1. Typewriter Animation Effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const words = ["以設計驅動創新，以技術實現價值。", "Design Driven. Technology Empowered."];
+            const textElement = document.getElementById("typewriter-text");
+            
+            // For initial showcase, let's render the main headline cleanly with typing simulation if wanted
+            // To ensure 100% stability without layout shift, we keep the primary string static or execute a smooth typing once.
+            
+            // Navbar background transition on scroll
+            const navbar = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add("shadow-md", "bg-ivory/90");
+                } else {
+                    navbar.classList.remove("shadow-md", "bg-ivory/90");
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById("menu-toggle");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            function toggleMenu() {
+                const isOpen = mobileMenu.classList.contains("translate-y-0");
+                if (isOpen) {
+                    mobileMenu.classList.remove("translate-y-0", "opacity-100", "pointer-events-auto");
+                    mobileMenu.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+                } else {
+                    mobileMenu.classList.add("translate-y-0", "opacity-100", "pointer-events-auto");
+                    mobileMenu.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+                }
+            }
+
+            menuToggle.addEventListener("click", toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.remove("translate-y-0", "opacity-100", "pointer-events-auto");
+                    mobileMenu.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+                });
+            });
+
+            // Scroll Reveal Intersection Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll(".reveal-on-scroll").forEach(el => {
+                observer.observe(el);
+            });
+
+            // Portfolio Filter Logic
+            const filterBtns = document.querySelectorAll(".filter-btn");
+            const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove("bg-terracottaDeep", "text-white", "shadow-sm");
+                        b.classList.add("bg-white", "text-textMuted", "border", "border-borderSubtle");
+                    });
+                    btn.classList.add("bg-terracottaDeep", "text-white", "shadow-sm");
+                    btn.classList.remove("bg-white", "text-textMuted", "border", "border-borderSubtle");
+
+                    const filterValue = btn.getAttribute("data-filter");
+
+                    portfolioItems.forEach(item => {
+                        if (filterValue === "all" || item.getAttribute("data-category") === filterValue) {
+                            item.style.display = "flex";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+
+        // Case Study Modal Functions
+        function openModal(title, subtitle, bg, challenge, role, result) {
+            document.getElementById("modal-title").innerText = subtitle;
+            document.getElementById("modal-bg").innerText = bg;
+            document.getElementById("modal-challenge").innerText = challenge;
+            document.getElementById("modal-role").innerText = role;
+            document.getElementById("modal-result").innerText = result;
+
+            const modal = document.getElementById("case-study-modal");
+            const content = document.getElementById("modal-content");
+            modal.classList.remove("opacity-0", "pointer-events-none");
+            content.classList.remove("scale-95");
+            content.classList.add("scale-100");
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("case-study-modal");
+            const content = document.getElementById("modal-content");
+            modal.classList.add("opacity-0", "pointer-events-none");
+            content.classList.remove("scale-100");
+            content.classList.add("scale-95");
+        }
+
+        // Journal Modal Functions
+        function openJournalModal(title, body) {
+            document.getElementById("journal-modal-title").innerText = title;
+            document.getElementById("journal-modal-body").innerText = body;
+
+            const modal = document.getElementById("journal-modal");
+            const content = document.getElementById("journal-modal-content");
+            modal.classList.remove("opacity-0", "pointer-events-none");
+            content.classList.remove("scale-95");
+            content.classList.add("scale-100");
+        }
+
+        function closeJournalModal() {
+            const modal = document.getElementById("journal-modal");
+            const content = document.getElementById("journal-modal-content");
+            modal.classList.add("opacity-0", "pointer-events-none");
+            content.classList.remove("scale-100");
+            content.classList.add("scale-95");
+        }
+
+        // Form Submit Handler & Toast Feedback (No alert() used)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("form-name").value;
+            const email = document.getElementById("form-email").value;
+
+            if (!name || !email) {
+                return;
+            }
+
+            // Show Toast
+            const toast = document.getElementById("toast-notification");
+            toast.classList.remove("translate-y-20", "opacity-0");
+
+            // Reset Form
+            document.getElementById("contact-form").reset();
+
+            // Hide Toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.add("translate-y-20", "opacity-0");
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
